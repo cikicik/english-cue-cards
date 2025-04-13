@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cue & Converse</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            max-width: 400px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card" id="cueCard">
+            <h2>Practice Situation</h2>
+            <p id="situation">You want to ask for extra sugar.</p>
+        </div>
+        <button class="button" id="newCueButton">🎲 New Cue</button>
+        <footer>Made for English Practice by Larasati 💬</footer>
+    </div>
+
+    <script>
+        const situations = [
+            "They gave you the wrong drink!",
+            "You want to ask for extra sugar.",
+            "You want to suggest sitting outside.",
+            "You want to split the bill.",
+            "You forgot your umbrella at a friend’s house.",
+            "You’re running late and need to text your boss.",
+            "You want to return an item with no receipt.",
+            "You’re lost in a new city and need help.",
+            "You’re running late and need to call a friend.",
+            "You need directions to the nearest pharmacy.",
+            "You want to return something but lost the receipt.",
+            "You left your umbrella at your friend’s place.",
+            "You hear loud music from your neighbor's house.",
+            "You meet someone new and want to introduce yourself.",
+            "You’re not sure how to use the self - checkout machine.",
+            "You need to ask someone to speak more slowly.",
+            "You want to compliment someone’s outfit.",
+            "You want to borrow a pen."
+
+        ];
+
+        function getRandomSituation() {
+            const randomIndex = Math.floor(Math.random() * situations.length);
+            return situations[randomIndex];
+        }
+
+        function updateSituation() {
+            const situationElement = document.getElementById('situation');
+            situationElement.textContent = getRandomSituation();
+        }
+
+        document.getElementById('newCueButton').addEventListener('click', updateSituation);
+
+        // Initialize with a random situation
+        updateSituation();
+    </script>
+</body>
+
+</html>
